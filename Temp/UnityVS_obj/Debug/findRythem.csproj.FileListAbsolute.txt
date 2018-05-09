@@ -1,0 +1,2 @@
+C:\Users\sabadad\Box Sync\Unity projects\findRythem\Temp\UnityVS_obj\Debug\findRythem.csprojResolveAssemblyReference.cache
+C:\Users\sabadad\Box Sync\Unity projects\findRythem\Temp\UnityVS_obj\Debug\findRythem.csproj.CoreCompileInputs.cache
