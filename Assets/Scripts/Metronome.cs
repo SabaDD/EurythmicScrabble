@@ -7,7 +7,7 @@ using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 public class Metronome : MonoBehaviour
 {
-    public double bpm = 100.0F;
+    public float bpm = 80.0F;
     public float gain = 0.5F;
     public int signatureHi = 4;
     public int signatureLo = 4;

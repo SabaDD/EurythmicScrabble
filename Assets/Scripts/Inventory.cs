@@ -1,33 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour, IHasChanged
 {
     [SerializeField] Transform slots;
-    [SerializeField] Text inventoryText;
-    public float[] noteSequence= new float[20];
+    public Transform TheCamera;
+    //[SerializeField] Text inventoryText;
+    
 
     public void HasChanged()
     {
+        List<noteValue> noteSequence = new List<noteValue>();
         System.Text.StringBuilder builder = new System.Text.StringBuilder();
         builder.Append(" - ");
-        int i = 0;
         foreach (Transform slotTransform in slots)
         {
             GameObject item = slotTransform.GetComponent<Slot>().Item;
             if (item)
             {
                 builder.Append(item.gameObject.GetComponent<noteValue>().noteDuration);
-                //Debug.Log("hey" + item.gameObject.GetComponent<noteValue>().noteDuration);
                 builder.Append(" - ");
-                noteSequence[i] = item.gameObject.GetComponent<noteValue>().noteDuration;
-                i++;
+                noteSequence.Add(item.gameObject.GetComponent<noteValue>());
+                
             }
         }
-        inventoryText.text = builder.ToString();
-        Debug.Log(noteSequence);
+        //inventoryText.text = builder.ToString();
+        CheckAccuracy checkAccuracy = TheCamera.gameObject.GetComponent<CheckAccuracy>();
+        checkAccuracy.producedNoteSequence = builder.ToString();
+        
+        
     }
 
     // Use this for initialization
